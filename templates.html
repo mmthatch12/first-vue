@@ -9,6 +9,7 @@
     </head>
     <body>
         <div id="app">
+            <h1 v-once>{{ title }}</h1>
             <!-- v-bind -->
             <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
         </div>
@@ -21,7 +22,8 @@
                 },
                 methods: {
                     sayHello: function(){
-                        return "Hello!";
+                        this.title = 'Hello!';
+                        return this.title;
                         // in order to access the title key above inside this function
                         // you need to do this.title
                     }
