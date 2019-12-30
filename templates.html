@@ -12,13 +12,17 @@
             <h1 v-once>{{ title }}</h1>
             <!-- v-bind -->
             <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+            <hr>
+            <!-- render normal html through vue.js -->
+            <p v-html="finishedLink"></p>
         </div>
         <script>
             new Vue({
                 el: '#app',
                 data: {
                     title: 'Hello World!',
-                    link: 'http://google.com'
+                    link: 'http://google.com',
+                    finishedLink: '<a href="http://google.com">Google</a>'
                 },
                 methods: {
                     sayHello: function(){
