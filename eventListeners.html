@@ -11,7 +11,11 @@
         <div id="app">
            <button v-on:click="increase(2, $event)">Click Me</button> 
            <p>{{ counter }}</p>
-           <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+           <p v-on:mousemove="updateCoordinates">
+               Coordinates: {{ x }} / {{ y }}
+               <!-- - <span v-on:mousemove="dummy">Dead Spot</span> -->
+                - <span v-on:mousemove.stop="">Dead Spot</span>
+            </p>
         </div>
         <script>
             new Vue({
@@ -29,6 +33,10 @@
                         this.x = event.clientX;
                         this.y = event.clientY;
                     }
+                    //one way to stop event in one spot
+                    // dummy: function(event){
+                    //     event.stopPropagation();
+                    // }
                 }
             }); 
         </script>
