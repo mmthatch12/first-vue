@@ -16,6 +16,7 @@
                <!-- - <span v-on:mousemove="dummy">Dead Spot</span> -->
                 - <span v-on:mousemove.stop="">Dead Spot</span>
             </p>
+            <input type="text" v-on:keyup.space="alertMe">
         </div>
         <script>
             new Vue({
@@ -32,6 +33,9 @@
                     updateCoordinates: function(event) {
                         this.x = event.clientX;
                         this.y = event.clientY;
+                    },
+                    alertMe: function(){
+                        alert('Alert!')
                     }
                     //one way to stop event in one spot
                     // dummy: function(event){
